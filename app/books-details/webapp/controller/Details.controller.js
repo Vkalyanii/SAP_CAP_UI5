@@ -14,10 +14,10 @@ sap.ui.define(
            
             const {bookId} = oEvent.getParameter("arguments");
             //const sRouterName = oEvent.getParameter("name");
-            const oForm = this.getView().byId("idBookForm");
+            const oObjectPage = this.getView().byId("idBooksDetailsForm");
    
-            oForm.bindElement(`/Books(${bookId})`, {
-                // expand: 'salary,address'
+            oObjectPage.bindElement(`/Books(${bookId})`, {
+                expand: 'addresses'
             });
          
         }

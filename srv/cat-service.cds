@@ -12,4 +12,5 @@ service CatalogService {
     }]
     
     entity Books as projection on my.Books;
+     entity Address as projection on my.Address;
 }
