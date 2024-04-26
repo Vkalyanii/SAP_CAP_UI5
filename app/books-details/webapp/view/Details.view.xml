@@ -1,0 +1,29 @@
+<mvc:View
+    controllerName="com.app.booksdetails.controller.Details"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.uxap"
+    xmlns="sap.m"
+>
+   <form:SimpleForm id="idBookForm" >
+     <VBox >
+        <Label id="_IDGenLabel1" text="Book Name"></Label>
+        <Text id="_IDGenText2" text="{title}"></Text>
+        </VBox>
+        <VBox >
+        <Label id="_IDGenLabel2" text="Author"></Label>
+        <Text id="_IDGenText3" text="{author}"></Text>
+        </VBox>
+        <!-- <Label text="CTC"/>
+        <Text text="{salary/costToCompany}"/> -->
+    </form:SimpleForm>
+
+
+   
+  
+          
+
+</mvc:View>

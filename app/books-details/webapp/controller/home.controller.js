@@ -72,9 +72,19 @@ sap.ui.define([
                     oTitle = oView.byId("idTitleFilterValue").destroyTokens(),
                     oStock = oView.byId("idStockFilterValue").destroyTokens(),
                     oPhone = oView.byId("idPhoneFilterValue").destroyTokens();
+            },
+            onSelectBook : function (oEvent) {
+             
+                const { ID, author } = oEvent.getSource().getSelectedItem().getBindingContext().getObject();
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteDetails", {
+                    bookId: ID,
+                    author: author
+                })
             }
         });
     });
+        
  
 
 // sap.ui.define([
