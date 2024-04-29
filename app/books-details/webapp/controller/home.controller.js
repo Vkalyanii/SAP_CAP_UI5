@@ -2,14 +2,15 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    'sap/m/Token'
+    'sap/m/Token',
+    "sap/ui/core/Fragment"
 ],
     /*
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator, Token) {
+    function (Controller, Filter, FilterOperator, Token,Fragment) {
         "use strict";
-        return Controller.extend("com.app.bookdetailsapp.controller.Home", {
+        return Controller.extend("com.app.booksdetails.controller.Home", {
             onInit: function () {
                 var oView = this.getView();
                 var oMultiInput1 = oView.byId("idAuthorFilterValue");
@@ -81,10 +82,29 @@ sap.ui.define([
                     bookId: ID,
                     author: author
                 })
+            },
+            onCreateBtnPress: async function () {
+                if (!this.oCreateBooksDialog) {
+                    this.oCreateBooksDialog = await Fragment.load({
+                        id: this.getView().getId(),
+                      name: "com.app.booksdetails.fragments.CreateBooksDialog",
+                        controller: this
+                    });
+                    this.getView().addDependent(this.oCreateBooksDialog);
+                }
+
+                this.oCreateBooksDialog.open();
+            },
+
+            onCloseDialog: function(){
+                if(this.oCreateBooksDialog.isOpen()){
+                    this.oCreateBooksDialog.close()
+                }
             }
         });
     });
-        
+    
+  
  
 
 // sap.ui.define([

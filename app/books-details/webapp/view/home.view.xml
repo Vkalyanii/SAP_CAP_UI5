@@ -147,6 +147,7 @@
                             icon="sap-icon://add"
                             tooltip="Create Book"
                             type="Success"
+                             press="onCreateBtnPress"
                         />
                         <Button
                             id="idBtnDelete"
